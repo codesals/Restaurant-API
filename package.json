@@ -1,7 +1,7 @@
 {
   "name": "Restaurant-API",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "repository": "https://github.com/codesals/Restaurant-API.git",
   "author": "Sally <78157471+codesals@users.noreply.github.com>",
   "license": "MIT",

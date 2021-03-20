@@ -34,4 +34,24 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+
+db.Restaurant.hasMany(db.Cuisine, {
+  foreignKey: "restaurantId",
+  allowNull: false,
+});
+
+db.Cuisine.hasMany(db.Dish, {
+  foreignKey: "cuisineId",
+  allowNull: false,
+});
+
+db.Cuisine.belongsTo(db.Restaurant, {
+  foreignKey: "restaurantId",
+});
+
+db.Dish.belongsTo(db.Cuisine, {
+  foreignKey: "cuisineId",
+});
+
+
 module.exports = db;

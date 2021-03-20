@@ -8,5 +8,14 @@ module.exports = (sequelize, DataTypes) => {
     description: {
       type: DataTypes.STRING,
     },
+    phone: {
+      type: DataTypes.INTEGER,
+    },
+    website: {
+      type: DataTypes.STRING,
+      validate: {
+        isUrl: true, 
+    }
+  },
   });
 };
