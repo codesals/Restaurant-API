@@ -14,8 +14,11 @@ module.exports = (sequelize, DataTypes) => {
     website: {
       type: DataTypes.STRING,
       validate: {
-        isUrl: true, 
-    }
-  },
+        isUrl: true,
+      },
+      // defaultScope: {
+      //   attributes: { exclude: ["updatedAt", "createdAt"] },
+      // },
+    },
   });
 };
