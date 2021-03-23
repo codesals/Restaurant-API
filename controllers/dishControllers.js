@@ -4,11 +4,13 @@ exports.dishList = async (req, res, next) => {
   try {
     const dishes = await Dish.findAll({
       order: ["id"],
-      attributes: ["id", "name", "price"],
+      attributes: {
+        exclude: ["createdAt", "updatedAt"],
+      },
       include: {
         model: Cuisine,
         as: "cuisine",
-        attributes: ["name"],
+        attributes: ["id", "name"],
       },
     });
     res.json(dishes);
@@ -55,7 +57,16 @@ exports.dishUpdate = async (req, res, next) => {
 exports.fetchDish = async (req, res, next) => {
   const { dishID } = req.params;
   try {
-    const dish = await Dish.findByPk(dishID);
+    const dish = await Dish.findByPk(dishID, {
+      attributes: {
+        exclude: ["createdAt", "updatedAt"],
+      },
+      include: {
+        model: Cuisine,
+        as: "cuisine",
+        attributes: ["id", "name"],
+      },
+    });
     res.status(201).json(dish);
   } catch (error) {
     next(error);

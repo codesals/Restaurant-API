@@ -14,9 +14,12 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         min: 1,
       },
-      // defaultScope: {
-      //   attributes: { exclude: ["updatedAt", "createdAt"] },
-      // },
     },
+    img: {
+      type: DataTypes.STRING,
+    },
+    // defaultScope: {
+    //   attributes: { exclude: ["updatedAt", "createdAt"] },
+    // },
   });
 };
